@@ -1,0 +1,23 @@
+{
+  "name": "fill-form-extension",
+  "version": "1.0.0",
+  "description": "一个依据输入的网址自动填充表单的插件",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "watch": "vite build --watch --emptyOutDir",
+    "dev:watch": "concurrently \"npm run dev\" \"npm run watch\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5",
+    "concurrently": "^8.2.2"
+  }
+}
