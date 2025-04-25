@@ -1,0 +1,27 @@
+@import "../../scss/common.scss";
+
+.#{$ns}Voice-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .voice-recognition {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+
+    >div {
+      height: unset;
+    }
+
+    &:not(.recording) {
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      background-color: rgba(131, 128, 153, .12);
+    }
+  }
+}

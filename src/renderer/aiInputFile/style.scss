@@ -1,0 +1,38 @@
+.file-control-list {
+  display: flex;
+  overflow-x: unset;
+  overflow-y: unset;
+  flex-wrap: wrap;
+
+  >li {
+    background: #F7F9FD;
+    border-radius: 5px;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    padding: 4px 10px;
+    position: relative;
+    max-width: 120px;
+
+    .file-control-itemInfo {
+      .file-control-clear {
+        position: absolute;
+        top: -4px;
+        right: -10px;
+        background: #F16665;
+        color: #fff;
+        height: 16px;
+        width: 16px;
+        display: flex;
+        justify-content: center;
+        border-radius: 100%;
+
+        &:hover {
+          color: #fff;
+          font-size: unset;
+          line-height: unset;
+          background-color: #F16665;
+        }
+      }
+    }
+  }
+}

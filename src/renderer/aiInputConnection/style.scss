@@ -1,0 +1,125 @@
+.input-connection {
+  background-color: #fff;
+  padding: 20px;
+
+  max-width: var(--content-max-width);
+  min-width: var(--content-min-width);
+  width: var(--content-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
+  margin-bottom: -18px;
+
+  border: 1px solid var(--primary);
+
+  // 移动端
+  &-mobile {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: unset;
+    border: unset;
+    border-bottom: 1px solid rgba(246, 246, 246, 1);
+    border-radius: 8px 8px 0 0;
+    max-height: 100%;
+    overflow-y: auto;
+
+    .input-connection-header {
+      position: sticky;
+      top: 0;
+      right: 20px;
+    }
+
+    .input-connection-body {
+      overflow-y: auto;
+
+      &-item-app {
+        &-item {
+          width: 30%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          text-align: center;
+
+          img {
+            margin: 0 0 10px;
+          }
+
+          div {
+            flex: unset;
+            width: 100%;
+            overflow: unset;
+            text-overflow: unset;
+            white-space: unset;
+          }
+        }
+      }
+    }
+  }
+
+  &-header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  &-body {
+    &-item {
+      &-title {
+        font-weight: bold;
+      }
+
+      &-app {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 16px 0;
+
+        &-item {
+          margin: 5px;
+          display: flex;
+          align-items: center;
+          background: rgba(247, 249, 253, 1);
+          border-radius: 8px;
+          padding: 12px;
+          color: rgba(51, 51, 51, 1);
+          font-size: 14px;
+          width: 200px;
+          cursor: pointer;
+
+          img {
+            height: 36px;
+            width: 36px;
+            margin-right: 8px;
+          }
+
+          img.file_img {
+            width: 18px;
+            height: 22px;
+          }
+
+          div {
+            flex: 1;
+            width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      &-content {
+        margin: 16px 0;
+
+        &-item {
+          cursor: pointer;
+          margin: 6px 0;
+
+          &-character.keyword {
+            color: rgba(241, 102, 101, 1);
+          }
+        }
+      }
+    }
+  }
+}

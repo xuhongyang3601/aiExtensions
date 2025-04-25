@@ -1,0 +1,54 @@
+.file-upload {
+  &.empty {
+    display: none;
+  }
+
+  .btn-area {
+    border-bottom: 1px solid #F6F6F6;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    line-height: 0;
+
+    .file-upload-btn {
+      cursor: pointer;
+    }
+  }
+
+  .file-area {
+    margin-bottom: 10px;
+
+    .upload-form:not(.mobile) {
+
+      // height: 0;
+      // width: 0;
+      .input-file {
+        >div {
+          overflow-y: auto;
+
+          >div:first-of-type {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+          }
+        }
+      }
+    }
+
+    .upload-form.mobile {
+      .input-file {
+        >div {
+          >div {
+            overflow-y: auto;
+
+            >div:first-of-type {
+              height: 0;
+              width: 0;
+              visibility: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+}
