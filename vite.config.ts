@@ -27,6 +27,7 @@ export default defineConfig({
         content: resolve(__dirname, "content.js"),
         script: resolve(__dirname, "script.js"),
         sidepanel: resolve(__dirname, "src/index.html"),
+        options: resolve(__dirname, "src/options.html"),
       },
       output: {
         entryFileNames: "[name].js",

@@ -40,5 +40,6 @@
   ],
   "side_panel": {
     "default_path": "src/index.html"
-  }
+  },
+  "options_page": "src/options.html"
 }

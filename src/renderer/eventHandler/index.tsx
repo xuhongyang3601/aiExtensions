@@ -16,7 +16,7 @@ import { fetchEventSource } from "@microsoft/fetch-event-source";
 import { toast } from "amis-ui";
 
 import { getStore, getGlobal } from "../../utils/store";
-import { baseUrl } from "../../utils/http";
+
 export interface EventHandlerSchema extends Omit<BaseSchema, "type"> {
   type: "event-handler";
 }
@@ -94,7 +94,7 @@ export class EventHandlerRenderer extends React.Component<
     if (args.url.startsWith("/dianda")) {
       args.url = args.url.replace("/dianda", "");
     }
-    fetchEventSource(baseUrl + args.url, {
+    fetchEventSource(getGlobal("baseUrl") + args.url, {
       method: args.method || "get",
       headers: args.headers ? { ...headers, ...args.headers } : headers,
       body:

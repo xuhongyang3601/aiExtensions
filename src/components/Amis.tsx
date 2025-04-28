@@ -1,8 +1,8 @@
 import React from "react";
 import { render as renderAmis, RenderOptions } from "amis";
 import axios from "../utils/http";
-import { baseUrl } from "../utils/http";
 import { queryStringToObject, isMobile } from "../utils/tool";
+import { getGlobal } from "../utils/store";
 
 export const fetcher = ({
   url, // 接口地址
@@ -47,7 +47,7 @@ export default function Amis(props) {
   let { schema, schemaUrl, theme = "cxd", ...resetProps } = props;
   const queryParams = queryStringToObject(location.search) || {};
   const context = {
-    CONTEXT_ROOT: baseUrl,
+    CONTEXT_ROOT: getGlobal("baseUrl"),
     ...queryParams,
   };
   return renderAmis(

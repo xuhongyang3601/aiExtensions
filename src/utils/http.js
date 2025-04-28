@@ -2,12 +2,7 @@ import axios from "axios";
 import { toast } from "amis-ui";
 import { setStore, getStore, clearStore, getGlobal } from "../utils/store";
 
-// 根据环境变量设置baseUrl
-export const baseUrl =
-  import.meta.env.MODE === "development"
-    ? "/devApi"
-    : "http://172.18.0.66/dianda";
-axios.defaults.baseURL = baseUrl;
+axios.defaults.baseURL = "";
 axios.defaults.withCredentials = true;
 axios.defaults.timeout = 1000 * 60 * 10; // 10 分钟
 
@@ -50,6 +45,7 @@ function response401Handler(response) {
 // 添加请求拦截器
 axios.interceptors.request.use(
   (config) => {
+    config.baseURL = getGlobal("baseUrl");
     let url = config.url;
     if (url.startsWith("/dianda")) {
       config.url = url.replace("/dianda", "");
@@ -63,7 +59,7 @@ axios.interceptors.request.use(
           setStore("uisAccessToken", cookieToken);
           token = cookieToken;
         }
-        if (token && !config.headers.Authorization ) {
+        if (token && !config.headers.Authorization) {
           config.headers.Authorization = "Bearer " + token;
         }
 

@@ -1,3 +1,4 @@
+let __BaseUrl = window.__storageData.baseUrl || "http://172.18.0.66/dianda";
 // 等待元素出现
 window.waitForElement = function (
   selector,
@@ -78,7 +79,7 @@ async function getFormConfigById(formId) {
   try {
     // 发送请求获取文件流
     const response = await fetch(
-      `http://172.18.0.66/dianda/ai/public/appLink/extract/params/${formId}`
+      `${__BaseUrl}/ai/public/appLink/extract/params/${formId}`
     );
 
     if (!response.ok) {
@@ -494,7 +495,7 @@ class AmisAutoFiller extends FormAutoFiller {
   async fetchFile(downloadUrl) {
     try {
       // 发送请求获取文件流
-      const response = await fetch("http://172.18.0.66/dianda" + downloadUrl);
+      const response = await fetch(__BaseUrl + downloadUrl);
 
       if (!response.ok) {
         throw new Error(`API请求失败: ${response.status}`);

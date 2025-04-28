@@ -53,3 +53,19 @@ export function getGlobal(key) {
 
   return value;
 }
+
+export function setChromeStore(key, value) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.sync.set({ [key]: value }, () => {
+      resolve();
+    });
+  });
+}
+
+export function getChromeStore(key) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.sync.get([key], (result) => {
+      resolve(result[key]);
+    });
+  });
+}
