@@ -2,20 +2,24 @@
 window.waitForElement = function (
   selector,
   rootElement = document,
-  timeout = 10000,
+  maxAttempts = 1000,
   checkFrequency = 100
 ) {
   return new Promise((resolve, reject) => {
-    const startTime = Date.now();
+    let attempts = 0;
     function check() {
       const element = rootElement.querySelector(selector);
       if (element) {
         return resolve(element);
       }
-      const elapsed = Date.now() - startTime;
-      if (elapsed > timeout) {
-        return reject(new Error(`等待元素 ${selector} 超时`));
+
+      attempts++;
+      if (attempts >= maxAttempts) {
+        return reject(
+          new Error(`等待元素 ${selector} 超过最大尝试次数(${maxAttempts}次)`)
+        );
       }
+
       setTimeout(check, checkFrequency);
     }
     check();
