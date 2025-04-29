@@ -19,8 +19,7 @@ export default {
         {
           actionType: "ajax",
           api: {
-            url:
-              "/ai/agent/sessionItem/cleanBySessionId?sessionId=${activeCon}",
+            url: "/ai/agent/sessionItem/cleanBySessionId?sessionId=${activeCon}",
             method: "post",
             messages: {
               success: "清除成功",
@@ -40,8 +39,12 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {const messageWrapper = document.querySelector('.message-wrapper');messageWrapper.scrollTop = messageWrapper.scrollHeight;}, 100)",
+          script: () => {
+            setTimeout(() => {
+              const messageWrapper = document.querySelector(".message-wrapper");
+              messageWrapper.scrollTop = messageWrapper.scrollHeight;
+            }, 100);
+          },
         },
       ],
     },
@@ -61,7 +64,9 @@ export default {
         },
         {
           actionType: "custom",
-          script: "window.speechSynthesis && window.speechSynthesis.cancel()",
+          script: () => {
+            window.speechSynthesis && window.speechSynthesis.cancel();
+          },
         },
         {
           actionType: "setValue",
@@ -138,8 +143,12 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {const messageWrapper = document.querySelector('.message-wrapper');messageWrapper.scrollTop = messageWrapper.scrollHeight;}, 100)",
+          script: () => {
+            setTimeout(() => {
+              const messageWrapper = document.querySelector(".message-wrapper");
+              messageWrapper.scrollTop = messageWrapper.scrollHeight;
+            }, 100);
+          },
         },
         {
           actionType: "setValue",
@@ -152,8 +161,12 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {const messageWrapper = document.querySelector('.message-wrapper');messageWrapper.scrollTop = messageWrapper.scrollHeight;}, 100)",
+          script: () => {
+            setTimeout(() => {
+              const messageWrapper = document.querySelector(".message-wrapper");
+              messageWrapper.scrollTop = messageWrapper.scrollHeight;
+            }, 100);
+          },
         },
         {
           actionType: "ajax",
@@ -178,10 +191,6 @@ export default {
           outputVar: "resData",
         },
         {
-          actionType: "custom",
-          script: "console.log('&&&&&&&&&&&&&&&&&&&&&&&&',event.data)",
-        },
-        {
           actionType: "broadcast",
           args: {
             eventName: "broadcast_voiceClick",
@@ -192,7 +201,9 @@ export default {
         },
         {
           actionType: "custom",
-          script: "window.speechSynthesis && window.speechSynthesis.cancel()",
+          script: () => {
+            window.speechSynthesis && window.speechSynthesis.cancel();
+          },
         },
         {
           actionType: "setValue",
@@ -338,7 +349,9 @@ export default {
         },
         {
           actionType: "custom",
-          script: "window.speechSynthesis && window.speechSynthesis.cancel()",
+          script: () => {
+            window.speechSynthesis && window.speechSynthesis.cancel();
+          },
         },
         {
           actionType: "setValue",
@@ -360,8 +373,12 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {const messageWrapper = document.querySelector('.message-wrapper');messageWrapper.scrollTop = messageWrapper.scrollHeight;}, 100)",
+          script: () => {
+            setTimeout(() => {
+              const messageWrapper = document.querySelector(".message-wrapper");
+              messageWrapper.scrollTop = messageWrapper.scrollHeight;
+            }, 100);
+          },
         },
         {
           actionType: "eventStream",
@@ -406,7 +423,9 @@ export default {
         },
         {
           actionType: "custom",
-          script: "window.speechSynthesis && window.speechSynthesis.cancel()",
+          script: () => {
+            window.speechSynthesis && window.speechSynthesis.cancel();
+          },
         },
         {
           stopPropagation: "${!digitalHuman && useStream}",
@@ -506,7 +525,9 @@ export default {
         },
         {
           actionType: "custom",
-          script: "window.speechSynthesis && window.speechSynthesis.cancel()",
+          script: () => {
+            window.speechSynthesis && window.speechSynthesis.cancel();
+          },
         },
         {
           actionType: "setValue",
@@ -527,7 +548,7 @@ export default {
               curInput: "${event.data.inputText}",
               onlineSearch: "${event.data.onlineSearch  || false}",
               personalSearch: "${event.data.personalSearch || false}",
-              pageImgUrl:"${event.data.pageImgUrl}",
+              pageImgUrl: "${event.data.pageImgUrl}",
             },
           },
         },
@@ -584,8 +605,12 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {const messageWrapper = document.querySelector('.message-wrapper');messageWrapper.scrollTop = messageWrapper.scrollHeight;}, 100)",
+          script: () => {
+            setTimeout(() => {
+              const messageWrapper = document.querySelector(".message-wrapper");
+              messageWrapper.scrollTop = messageWrapper.scrollHeight;
+            }, 100);
+          },
         },
         {
           actionType: "setValue",
@@ -598,8 +623,12 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {const messageWrapper = document.querySelector('.message-wrapper');messageWrapper.scrollTop = messageWrapper.scrollHeight;}, 100)",
+          script: () => {
+            setTimeout(() => {
+              const messageWrapper = document.querySelector(".message-wrapper");
+              messageWrapper.scrollTop = messageWrapper.scrollHeight;
+            }, 100);
+          },
         },
         {
           actionType: "eventStream",
@@ -635,7 +664,9 @@ export default {
         },
         {
           actionType: "custom",
-          script: "window.speechSynthesis && window.speechSynthesis.cancel()",
+          script: () => {
+            window.speechSynthesis && window.speechSynthesis.cancel();
+          },
         },
       ],
     },
@@ -739,8 +770,12 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {const messageWrapper = document.querySelector('.message-wrapper');messageWrapper.scrollTop = messageWrapper.scrollHeight;}, 600)",
+          script: () => {
+            setTimeout(() => {
+              const messageWrapper = document.querySelector(".message-wrapper");
+              messageWrapper.scrollTop = messageWrapper.scrollHeight;
+            }, 600);
+          },
         },
       ],
     },
@@ -778,8 +813,17 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {let loadingIcons = document.querySelectorAll('.cxd-AiMessage--robot .step-header>i.fa-spinner');for(let i=0;i<loadingIcons.length;i++){loadingIcons[i].className='fa-check-circle-o text-success fa fa-fa-check-circle-o'}}, 600)",
+          script: () => {
+            setTimeout(() => {
+              let loadingIcons = document.querySelectorAll(
+                ".cxd-AiMessage--robot .step-header>i.fa-spinner"
+              );
+              for (let i = 0; i < loadingIcons.length; i++) {
+                loadingIcons[i].className =
+                  "fa-check-circle-o text-success fa fa-fa-check-circle-o";
+              }
+            }, 600);
+          },
         },
       ],
     },
@@ -801,8 +845,12 @@ export default {
         },
         {
           actionType: "custom",
-          script:
-            "setTimeout(() => {const messageWrapper = document.querySelector('.message-wrapper');messageWrapper.scrollTop = messageWrapper.scrollHeight;}, 600)",
+          script: () => {
+            setTimeout(() => {
+              const messageWrapper = document.querySelector(".message-wrapper");
+              messageWrapper.scrollTop = messageWrapper.scrollHeight;
+            }, 600);
+          },
         },
         {
           actionType: "reload",
