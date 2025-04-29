@@ -28,6 +28,7 @@
     "history",
     "storage",
     "sidePanel",
+    "desktopCapture",
     "http://*/*",
     "https://*/*"
   ],

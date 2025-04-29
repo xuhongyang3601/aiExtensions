@@ -417,7 +417,8 @@ export default [
             className: "mr-2",
             width: "22px",
             height: "22px",
-            visibleOn: "${enableMultimodal}",
+            visible:false,
+            // visibleOn: "${enableMultimodal}",
             onEvent: {
               click: {
                 actions: [
@@ -475,6 +476,10 @@ export default [
                         actionType: "close",
                         componentId: "input-connection",
                       },
+                      {
+                        actionType: "captureScreen",
+                        expression: "${summarize}",
+                      },
                       // {
                       //   actionType: 'chatSubmit',
                       //   componentId: 'AIConversation',
@@ -496,6 +501,7 @@ export default [
                         componentId: "AIConversation",
                         args: {
                           inputText: "${inputText}",
+                          pageImgUrl: "${event.data.imgUrl}",
                           onlineSearch: "${onlineSearchFlag || false}",
                           personalSearch: "${personalSearchFlag || false}",
                         },
@@ -530,6 +536,10 @@ export default [
                         stopPropagation:
                           "${ISEMPTY(inputText) || submiting || !canSubmit}",
                       },
+                      {
+                        actionType: "captureScreen",
+                        expression: "${summarize}",
+                      },
                       // {
                       //   actionType: 'chatSubmit',
                       //   componentId: 'AIConversation',
@@ -551,6 +561,7 @@ export default [
                         componentId: "AIConversation",
                         args: {
                           inputText: "${inputText}",
+                          pageImgUrl: "${event.data.imgUrl}",
                           onlineSearch: "${onlineSearchFlag || false}",
                           personalSearch: "${personalSearchFlag || false}",
                         },
@@ -621,7 +632,8 @@ export default [
           },
           {
             type: "image",
-            visibleOn: "${enableSpeechAssistant}",
+            visible:false,
+            // visibleOn: "${enableSpeechAssistant}",
             src: "${CONTEXT_ROOT}/ai/icons/microphone${digitalHuman? '-white': ''}.svg",
             thumbMode: "contain",
             innerClassName: "no-border",
@@ -763,6 +775,35 @@ export default [
                     args: {
                       value: {
                         personalSearchFlag: "${event.data.value}",
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          {
+            name: "summarize",
+            type: "checkbox",
+            label: false,
+            trueValue: true,
+            falseValue: false,
+            optionType: "button",
+            option: {
+              type: "html",
+              className: "onlineSearch-content personalSearchFlag",
+              html: '<i class="fa fa-book"></i><span class="online-text">总结此页面</span>',
+            },
+            className: "onlineSearch ml-2",
+            onEvent: {
+              change: {
+                actions: [
+                  {
+                    actionType: "setValue",
+                    componentId: "list-service",
+                    args: {
+                      value: {
+                        summarize: "${event.data.value}",
                       },
                     },
                   },

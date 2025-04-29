@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { HashRouter } from "react-router-dom";
 import "./renderer";
+import "./AmisActions";
 import Router from "./router";
 import { defaultBaseUrl } from "./constants";
 import { getChromeStore, setGlobal } from "./utils/store";
