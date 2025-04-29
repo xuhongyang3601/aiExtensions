@@ -23,7 +23,7 @@ export class CaptureScreenActionClass implements RendererAction {
     try {
       const { args } = action;
       const res = await captureVisibleTab();
-      event.setData(createObject(event.data, { imgUrl: res }));
+      event.setData(createObject(event.data, { htmlStr: res }));
     } catch (error) {
       console.error(error);
     }

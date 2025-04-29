@@ -108,17 +108,15 @@ export const isChromeAnd360Browser = () => {
   return true;
 };
 
-// 调用浏览器截屏
 export const captureVisibleTab = () => {
   return new Promise((resolve, reject) => {
     try {
       chrome.runtime.sendMessage({ action: "takeScreenshot" }, (response) => {
         if (response.success) {
-          // 处理截图数据
-          const imageUrl = response.dataUrl;
-          resolve(imageUrl);
+          const htmlStr = response.html;
+          resolve(htmlStr);
         } else {
-          reject("截屏失败:", response.error);
+          reject("获取dom失败:", response.error);
         }
       });
     } catch (error) {

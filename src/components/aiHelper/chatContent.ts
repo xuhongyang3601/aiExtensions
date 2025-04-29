@@ -501,7 +501,7 @@ export default [
                         componentId: "AIConversation",
                         args: {
                           inputText: "${inputText}",
-                          pageImgUrl: "${event.data.imgUrl}",
+                          htmlStr: "${event.data.htmlStr}",
                           onlineSearch: "${onlineSearchFlag || false}",
                           personalSearch: "${personalSearchFlag || false}",
                         },
@@ -561,7 +561,7 @@ export default [
                         componentId: "AIConversation",
                         args: {
                           inputText: "${inputText}",
-                          pageImgUrl: "${event.data.imgUrl}",
+                          htmlStr: "${event.data.htmlStr}",
                           onlineSearch: "${onlineSearchFlag || false}",
                           personalSearch: "${personalSearchFlag || false}",
                         },
