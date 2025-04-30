@@ -548,7 +548,7 @@ export default {
               curInput: "${event.data.inputText}",
               onlineSearch: "${event.data.onlineSearch  || false}",
               personalSearch: "${event.data.personalSearch || false}",
-              htmlStr: "${event.data.htmlStr}",
+              imageBase64: "${event.data.imageBase64}",
             },
           },
         },
@@ -644,7 +644,7 @@ export default {
               fileList: "${files || []}",
               agentId: "${currentAgent.id}",
               bizParams: {
-                htmlStr: "${GETRENDERERDATA('list-service','htmlStr')}",
+                imageBase64: "${GETRENDERERDATA('list-service','imageBase64')}",
                 onlineSearch:
                   "${GETRENDERERDATA('list-service','onlineSearch')}",
                 personalSearch:
