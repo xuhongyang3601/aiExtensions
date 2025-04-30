@@ -148,6 +148,7 @@ class FormAutoFiller {
         date: this.handleDateElement.bind(this),
         file: this.handleFileElement.bind(this),
         dateTime: this.handleDateTimeElement.bind(this),
+        radio: this.handleRadioElement.bind(this),
       };
 
       const handler = handlers[this.formConfig[key].inputType];
@@ -539,6 +540,28 @@ class AmisAutoFiller extends FormAutoFiller {
       console.error("获取文件信息失败:", error);
       return null;
     }
+  }
+
+  // 处理单选框
+  handleRadioElement(element, key) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await waitForElement(".cxd-Checkbox--radio", element);
+        const radios = element.querySelectorAll(".cxd-Checkbox--radio");
+        const targetValue = this.formConfig[key].value;
+
+        for (const radio of radios) {
+          if (radio.innerText === targetValue) {
+            radio.click();
+            break;
+          }
+        }
+        await this.waitForDomUpdate();
+        resolve();
+      } catch (e) {
+        reject(e);
+      }
+    });
   }
 }
 // 暴露 AmisAutoFiller 类
